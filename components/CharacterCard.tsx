@@ -37,6 +37,18 @@ function CharacterCard(item: CharachterSchema) {
         </span>
         <span className="text-slate-50 text-md">{item.status} -</span>
         <span className="text-slate-50 text-md"> {item.species}</span>
+        <p className="text-sm font-semibold text-gray-500 mt-4">
+          Last known location:
+        </p>
+        <p className="text-md font-medium text-gray-300 line-clamp-1">
+          {item.location.name}
+        </p>
+        <p className="text-sm font-semibold text-gray-500 mt-4">
+          First seen in:
+        </p>
+        <p className="text-md font-medium text-gray-300 line-clamp-1">
+          {item.origin.name}
+        </p>
       </CardContent>
     </Card>
   );
