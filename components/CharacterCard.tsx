@@ -9,7 +9,7 @@ function CharacterCard(item: CharachterSchema) {
       sx={{ maxWidth: 600 }}
     >
       <CardMedia
-        className="w-full xl:w-56 object-cover		"
+        className="w-full object-cover h-80 xl:w-56 xl:h-56"
         component="img"
         image={item.image}
         alt={item.name}
@@ -35,8 +35,8 @@ function CharacterCard(item: CharachterSchema) {
         >
           .
         </span>
-        <span className="text-slate-50 text-md">{item.status} -</span>
-        <span className="text-slate-50 text-md"> {item.species}</span>
+        <span className="text-slate-50 text-md">{item.status} - </span>
+        <span className="text-slate-50 text-md">{item.species}</span>
         <p className="text-sm font-semibold text-gray-500 mt-4">
           Last known location:
         </p>

@@ -10,7 +10,7 @@ function layout({ children }: { children: ReactNode }) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <nav className="flex h-16 bg-slate-800 items-center px-7">
+        <nav className="flex py-7 bg-slate-800 items-center px-10">
           <Logo />
         </nav>
         <main>{children}</main>
