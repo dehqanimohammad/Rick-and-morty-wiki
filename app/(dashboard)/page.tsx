@@ -1,10 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import LoadingButton from "@mui/lab/LoadingButton";
+import CharacterCard from "@/components/CharacterCard";
+import { CharachterSchema } from "@/schema/CharacterSchema";
+import { Skeleton } from "@mui/material";
+import SkeletonContainer from "@/components/SkeletonContainer";
 
 function page() {
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const { data, isPending, isError, error } = useQuery<any>({
     queryKey: ["characters", page],
     queryFn: async () => {
@@ -33,17 +38,41 @@ function page() {
   };
   const characters = data?.results;
 
-  console.log("data fetched! info:", data);
+  if (isPending) {
+    return (
+      <div className="flex gap-10 mt-10 px-2 lg:px-10 ">
+        <SkeletonContainer />
+      </div>
+    );
+  }
+
   return (
     <>
-      <div className="px-2 lg:px-10">
-        <div>
-          {characters?.map((item: any) => (
-            <p key={item.id}>{item.name}</p>
+      <div className="px-2 lg:px-10 mt-10 flex flex-col">
+        <div className="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3  gap-10 mx-auto">
+          {characters?.map((item: CharachterSchema) => (
+            <CharacterCard {...item} key={item.id} />
           ))}
         </div>
-        <button onClick={handleIncrease}>next</button>
-        <button onClick={handleDecrease}>prev</button>
+
+        <div className="my-10 gap-3 flex justify-center">
+          <LoadingButton
+            className="bg-slate-300 text-black"
+            loading={isPending}
+            variant="contained"
+            onClick={handleDecrease}
+          >
+            Prev
+          </LoadingButton>
+          <LoadingButton
+            className="bg-slate-300 text-black"
+            loading={isPending}
+            variant="contained"
+            onClick={handleIncrease}
+          >
+            Next
+          </LoadingButton>
+        </div>
       </div>
     </>
   );
