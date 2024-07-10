@@ -4,13 +4,13 @@ import React, { Suspense, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import LoadingButton from "@mui/lab/LoadingButton";
 import CharacterCard from "@/components/CharacterCard";
-import { CharachterSchema } from "@/schema/CharacterSchema";
+import { CharachterSchema } from "@/schema/characterSchema";
 import { Skeleton } from "@mui/material";
 import SkeletonContainer from "@/components/SkeletonContainer";
 
 function page() {
   const [page, setPage] = useState(1);
-  const { data, isPending, isError, error } = useQuery<any>({
+  const { data, isPending } = useQuery({
     queryKey: ["characters", page],
     queryFn: async () => {
       const res = await fetch(
@@ -57,7 +57,7 @@ function page() {
 
         <div className="my-10 gap-3 flex justify-center">
           <LoadingButton
-            className="bg-slate-300 text-black"
+            className="bg-slate-300 text-black font-semibold"
             loading={isPending}
             variant="contained"
             onClick={handleDecrease}
@@ -65,7 +65,7 @@ function page() {
             Prev
           </LoadingButton>
           <LoadingButton
-            className="bg-slate-300 text-black"
+            className="bg-slate-300 text-black font-semibold"
             loading={isPending}
             variant="contained"
             onClick={handleIncrease}
