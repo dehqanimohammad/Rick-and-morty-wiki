@@ -6,9 +6,12 @@ Browse characters from the Rick and Morty universe.</br>
 View detailed information for each character, including their image, name, status, species, location.</br>
 
 Technologies</br>
+
 Frontend: Next.js, React, React Query, Tailwind CSS</br>
 Data: External Rick and Morty API (https://rickandmortyapi.com/) (or any suitable API)</br>
+
 Getting Started</br>
+
 Clone the repository:</br>
 
 ```
