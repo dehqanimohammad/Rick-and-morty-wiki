@@ -15,14 +15,12 @@ Getting Started</br>
 Clone the repository:</br>
 
 ```
-Bash
-git clone https://github.com/your-username/rick-and-morty-wiki.git
+git clone https://github.com/dehqanimohammad/Rick-and-morty-wiki.git
 ```
 
 Install dependencies:</br>
 
 ```
-Bash
 cd rick-and-morty-wiki
 npm install
 ```
@@ -30,7 +28,6 @@ npm install
 Start the development server:</br>
 
 ```
-Bash
 npm run dev
 ```
 
